@@ -1,62 +1,76 @@
-# 🚗 Route Planning Project – A* Pathfinding
+# Route Planning Project 🚗🗺️
 
-This project finds the shortest route between two points on a real map using the A* search algorithm. It reads OpenStreetMap data and renders the result using the `io2d` graphics library.
-
----
-
-## 📦 Features
-
-- A* search implementation in C++
-- Parses and renders real `.osm` map data
-- Live user input for start/end coordinates
-- Visualizes the path using `io2d`
+This project implements **A\*** search algorithm to find the shortest path between two points on a real OpenStreetMap (OSM) dataset. Built in C++, it uses the **io2d** graphics library to render the computed route visually.
 
 ---
 
-## 🧱 Project Structure
+## 📸 Preview
 
-route-planning/
-├── src/
-│ ├── main.cpp # User input + program entry point
-│ ├── route_model.cpp # Map model with helper functions
-│ ├── route_planner.cpp # A* pathfinding algorithm
-│ ├── render.cpp # Rendering the route
-├── map.osm # Map file
-├── CMakeLists.txt
-└── README.md
-
+![Map Preview](map.png)
 
 ---
 
-## 🛠️ Build Instructions
+## 🧰 Features
+
+- Parses and reads OSM data.
+- Accepts user input for start and end coordinates.
+- Runs A\* search to compute the shortest path.
+- Visually renders the result using `io2d`.
+
+---
+
+## 🛠️ Build & Run Instructions
+
+### ✅ 1. Clone with submodules
 
 ```bash
 git clone --recurse-submodules https://github.com/aryanparida21/route_planning.git
 cd route_planning
+
+
+✅ 2. Create Build Directory
+
 mkdir build && cd build
 cmake ..
 make -j$(nproc)
 
-🚀 Run the Program
+✅ 3. Run
 
 ./OSM_A_star_search
 
-You’ll be prompted to enter coordinates:
+📥 It will use ../map.osm by default or let you specify your own:
+
+./OSM_A_star_search -f your_map_file.osm
+
+💡 Example Usage
 
 Set start and ending points: start_x start_y end_x end_y
+10 10 90 90
+Distance: 851.123 meters.
 
-🔍 How A* Search Works
+🔧 Dependencies
 
-A* uses:
+    cmake >= 3.11.3
 
-    g(n): cost from start to current node
+    g++ >= 7.4.0
 
-    h(n): estimated cost to goal (heuristic)
+    make
 
-    f(n) = g(n) + h(n)
+    IO2D graphics library
 
-It explores paths with the lowest f(n) first, ensuring optimal and fast routefinding.
-👤 Author
+🧠 Algorithm Used
 
-Aryan Parida
-GitHub: @aryanparida21
+The core of the pathfinding logic is the A* (A-star) search algorithm, an informed search algorithm using:
+
+f(n) = g(n) + h(n)
+
+Where:
+
+    g(n) = cost from start to node n
+
+    h(n) = heuristic (straight-line) estimate from n to goal
+
+🙋‍♂️ Author
+
+👨‍💻 Aryan Parida
+🔗 github.com/aryanparida21
