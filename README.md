@@ -1,8 +1,3 @@
-
----
-
-**📄 README for Route Planning App** (`README.md`)  
-```markdown
 # Route Planning App
 
 ## Overview
@@ -19,5 +14,6 @@ A C++ application that calculates the shortest route between two points on a map
 - **Libraries:** IO2D
 - **Build Tool:** CMake
 - **Data Source:** OpenStreetMap
+
 
 
